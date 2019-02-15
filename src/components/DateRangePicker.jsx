@@ -98,10 +98,10 @@ const defaultProps = {
   navPrev: null,
   navNext: null,
 
-  onPrevMonthClick() {},
-  onNextMonthClick() {},
+  onPrevMonthClick() { },
+  onNextMonthClick() { },
 
-  onClose() {},
+  onClose() { },
 
   // day presentation and interaction related props
   renderCalendarDay: undefined,
@@ -229,7 +229,9 @@ class DateRangePicker extends React.PureComponent {
       }
     }
 
-    onFocusChange(focusedInput);
+    if (focusedInput !== 'endDate') {
+      onFocusChange(focusedInput);
+    }
   }
 
   onDayPickerFocus() {
